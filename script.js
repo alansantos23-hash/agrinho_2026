@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Agrinho 2026</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-  <style>
-    body { margin: 0; background: #87CEEB; font-family: Arial; text-align: center; }
-    h1 { color: #2E8B57; margin: 10px; }
-  </style>
-</head>
-<body>
-  <h1>🌱 Agrinho 2026 🌾</h1>
-  <canvas id="sketch"></canvas>
+ JavaScript
 
-<script>
 let plantas = [];
 let particulas = [];
 let sol;
@@ -22,6 +8,7 @@ function setup() {
   createCanvas(800, 600);
   sol = { x: 150, y: 120, r: 60 };
   
+  // Cria as plantas iniciais
   for (let i = 0; i < 8; i++) {
     plantas.push(new Planta(random(100, 700), 520));
   }
@@ -30,39 +17,44 @@ function setup() {
 function draw() {
   background(135, 206, 235);
   
+  // Desenha os elementos do cenário
   drawNuvens();
+  desenharSol();
+  desenharCenario();
   
-  fill(255, 220, 0);
-  circle(sol.x, sol.y, sol.r * 2);
-  fill(255, 240, 100);
-  circle(sol.x, sol.y, sol.r * 1.6);
-  
-  fill(139, 69, 19);
-  rect(0, 450, width, height - 450);
-  fill(34, 139, 34);
-  rect(0, 480, width, height - 480);
-  
+  // Atualiza e mostra as plantas
   for (let planta of plantas) {
     planta.atualizar();
     planta.mostrar();
   }
   
+  // Atualiza e mostra as partículas de terra
   for (let i = particulas.length - 1; i >= 0; i--) {
     particulas[i].atualizar();
     particulas[i].mostrar();
     if (particulas[i].vida < 0) particulas.splice(i, 1);
   }
   
-  fill(255);
-  textSize(32);
-  textAlign(CENTER);
-  text("🌱 Agrinho 2026 🌱", width/2, 55);
-  textSize(22);
-  text("Campo e Cidade: Conexões que Transformam", width/2, 85);
-  
-  fill(0);
-  textSize(16);
-  text("Clique na terra para plantar sementes!", width/2, height - 20);
+  // Textos informativos na tela
+  desenharTextos();
+}
+
+// --- FUNÇÕES AUXILIARES DE DESENHO ---
+
+function desenharSol() {
+  fill(255, 220, 0);
+  circle(sol.x, sol.y, sol.r * 2);
+  fill(255, 240, 100);
+  circle(sol.x, sol.y, sol.r * 1.6);
+}
+
+function desenharCenario() {
+  // Terra
+  fill(139, 69, 19);
+  rect(0, 450, width, height - 450);
+  // Grama
+  fill(34, 139, 34);
+  rect(0, 480, width, height - 480);
 }
 
 function drawNuvens() {
@@ -79,7 +71,24 @@ function desenharNuvem(x, y, escala) {
   circle(x + 70 * escala, y, 55 * escala);
 }
 
+function desenharTextos() {
+  fill(255);
+  noStroke();
+  textSize(32);
+  textAlign(CENTER);
+  text("🌱 Agrinho 2026 🌱", width / 2, 55);
+  textSize(22);
+  text("Campo e Cidade: Conexões que Transformam", width / 2, 85);
+  
+  fill(0);
+  textSize(16);
+  text("Clique na terra para plantar sementes!", width / 2, height - 20);
+}
+
+// --- INTERAÇÃO ---
+
 function mousePressed() {
+  // Verifica se o clique foi na região da terra/grama
   if (mouseY > 450 && mouseY < 580) {
     plantas.push(new Planta(mouseX, 520));
     for (let i = 0; i < 15; i++) {
@@ -87,6 +96,8 @@ function mousePressed() {
     }
   }
 }
+
+// --- CLASSES ---
 
 class Planta {
   constructor(x, y) {
@@ -105,10 +116,12 @@ class Planta {
     push();
     translate(this.x, this.y);
     
+    // Caule
     stroke(34, 139, 34);
     strokeWeight(6);
     line(0, 0, 0, -this.altura * this.fase * 0.7);
     
+    // Folhas
     noStroke();
     fill(this.corFolha);
     let h = -this.altura * this.fase * 0.7;
@@ -126,6 +139,7 @@ class Planta {
       pop();
     }
     
+    // Flor/Fruto quando cresce
     if (this.fase > 1.5) {
       fill(255, 215, 0);
       circle(0, h - 15, 25);
@@ -150,7 +164,7 @@ class Particula {
   atualizar() {
     this.x += this.vx;
     this.y += this.vy;
-    this.vy += 0.15;
+    this.vy += 0.15; // Gravidade da partícula
     this.vida--;
   }
   
@@ -160,21 +174,6 @@ class Particula {
     circle(this.x, this.y, this.vida / 8);
   }
 }
-</script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
