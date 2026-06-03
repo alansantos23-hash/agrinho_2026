@@ -1,6 +1,64 @@
- <div class="painel-lcd">
-  <p>Contagem: <span id="valor-contador">0</span></p>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantios: Custo Ambiental</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🌳 O Verdadeiro Custo dos Plantios</h1>
+        <p>É preciso derrubar árvores e usar agrotóxicos?</p>
+    </header>
 
-<button id="btn-incrementar">Aumentar</button>
-<button id="btn-resetar">Resetar</button>
+    <main>
+        <section id="intro">
+            <h2>Introdução</h2>
+            <p>Para produzir em larga escala (eucalipto, pinus, soja, etc.), o modelo atual exige limpeza total da área e uso intenso de produtos químicos.</p>
+        </section>
+
+        <section id="problemas">
+            <h2>Principais Problemas</h2>
+            <div class="card">
+                <h3>🔪 Derrubada de Vegetação</h3>
+                <p>Quase sempre é necessário remover a vegetação nativa para plantar em monocultura.</p>
+            </div>
+            <div class="card">
+                <h3>☠️ Uso de Agrotóxicos</h3>
+                <p>Herbicidas, inseticidas e fertilizantes químicos são usados em grande quantidade.</p>
+            </div>
+        </section>
+
+        <section id="impactos">
+            <h2>Impactos Ambientais</h2>
+            <ul>
+                <li>Perda de biodiversidade</li>
+                <li>Contaminação de rios e solo</li>
+                <li>Erosão e empobrecimento do solo</li>
+                <li>Emissão de CO₂</li>
+            </ul>
+        </section>
+
+        <section id="alternativas">
+            <h2>Alternativas Sustentáveis</h2>
+            <p>Clique no botão abaixo para ver soluções mais ecológicas:</p>
+            <button id="btnAlternativas">Mostrar Alternativas</button>
+            <div id="listaAlternativas" class="hidden">
+                <ul>
+                    <li>Agrofloresta</li>
+                    <li>Plantio consorciado</li>
+                    <li>Uso reduzido de agrotóxicos</li>
+                    <li>Certificação FSC</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Reflexão: Produzir mais barato quase sempre significa destruir mais.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
