@@ -1,16 +1,7 @@
- body {
-  margin: 0;
-  background-color: #87CEEB;
-  font-family: Arial, sans-serif;
-  text-align: center;
+  /* Exemplo didático de estilização */
+.painel-lcd {
+  background-color: #5783db; /* Cor de fundo estilo LCD */
+  color: white;
+  font-family: monospace;
+  padding: 10px;
 }
-
-h1 {
-  color: #2E8B57;
-  margin: 10px;
-}
-
-
-
-
-
