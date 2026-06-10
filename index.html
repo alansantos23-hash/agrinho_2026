@@ -1,64 +1,96 @@
-<<!DOCTYPE html>
+
+
+
+
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantios: Custo Ambiental</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>AgroFuturo - Sustentabilidade e Inteligência Artificial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🌳 O Verdadeiro Custo dos Plantios</h1>
-        <p>É preciso derrubar árvores e usar agrotóxicos?</p>
+
+    <div class="acessibilidade-container" role="complementary" aria-label="Ferramentas de Acessibilidade">
+        <button id="btn-aumentar" aria-label="Aumentar texto">A+</button>
+        <button id="btn-diminuir" aria-label="Diminuir texto">A-</button>
+        <button id="btn-tema" aria-label="Alternar modo escuro e claro">🌓</button>
+        <button id="btn-ler" aria-label="Ouvir texto principal">▶ Ouvir</button>
+        <button id="btn-parar" aria-label="Parar leitura de voz">⏹ Parar</button>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Tecnologia Agrícola Reforça o Papel do Brasil</h1>
+            <p>O equilíbrio perfeito entre produção em escala, inovação digital e preservação ambiental para o futuro do planeta.</p>
+            <a href="#conteudo-principal" class="btn-primary">Explorar Inovações</a>
+        </div>
     </header>
 
-    <main>
-        <section id="intro">
-            <h2>Introdução</h2>
-            <p>Para produzir em larga escala (eucalipto, pinus, soja, etc.), o modelo atual exige limpeza total da área e uso intenso de produtos químicos.</p>
-        </section>
+    <div class="main-layout" id="conteudo-principal">
+        
+        <main class="conteudo-principal">
+            
+            <section class="artigo-introducao">
+                <h2>O Ouro da Inteligência no Campo</h2>
+                <p>A agricultura sustentável ganha espaço no debate global em um momento de pressão sobre custos, segurança alimentar, energia e mudanças climáticas. Esse cenário coloca o Brasil em posição de destaque por unir produtividade, inovação e capacidade de adaptação no campo.</p>
+                <p>O avanço de tecnologias baseadas no uso de microrganismos nas lavouras, como o trabalho premiado da microbiologista Mariangela Hungria com bactérias que capturam nitrogênio do ar, mostra como o país lidera a transição para reduzir a dependência de fertilizantes químicos industriais.</p>
+            </section>
 
-        <section id="problemas">
-            <h2>Principais Problemas</h2>
-            <div class="card">
-                <h3>🔪 Derrubada de Vegetação</h3>
-                <p>Quase sempre é necessário remover a vegetação nativa para plantar em monocultura.</p>
+            <div class="imagem">
+                <img src="Foto1.png" alt="Drone sobrevoando plantação monitorando a saúde da lavoura com sensores de alta precisão">
             </div>
-            <div class="card">
-                <h3>☠️ Uso de Agrotóxicos</h3>
-                <p>Herbicidas, inseticidas e fertilizantes químicos são usados em grande quantidade.</p>
-            </div>
-        </section>
 
-        <section id="impactos">
-            <h2>Impactos Ambientais</h2>
-            <ul>
-                <li>Perda de biodiversidade</li>
-                <li>Contaminação de rios e solo</li>
-                <li>Erosão e empobrecimento do solo</li>
-                <li>Emissão de CO₂</li>
-            </ul>
-        </section>
+            <section class="ia-beneficios">
+                <h2>Quais os Principais Benefícios da Inteligência Artificial no Campo?</h2>
+                <p>A Inteligência Artificial (IA) promete revolucionar o setor agrícola. Ela permite a otimização de recursos naturais finitos, automatização de processos complexos e o aumento da resiliência frente às adversidades climáticas.</p>
+                
+                <div class="accordion">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">1. Otimização de Recursos</button>
+                        <div class="accordion-body">
+                            <p>Sistemas de irrigação inteligentes e sensores monitoram constantemente as condições do solo e das plantas, ajustando a água de acordo com a necessidade real. Isso reduz o desperdício e melhora drasticamente a saúde das culturas.</p>
+                        </div>
+                    </div>
 
-        <section id="alternativas">
-            <h2>Alternativas Sustentáveis</h2>
-            <p>Clique no botão abaixo para ver soluções mais ecológicas:</p>
-            <button id="btnAlternativas">Mostrar Alternativas</button>
-            <div id="listaAlternativas" class="hidden">
-                <ul>
-                    <li>Agrofloresta</li>
-                    <li>Plantio consorciado</li>
-                    <li>Uso reduzido de agrotóxicos</li>
-                    <li>Certificação FSC</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+                    <div class="accordion-item">
+                        <button class="accordion-header">2. Monitoramento de Culturas</button>
+                        <div class="accordion-body">
+                            <p>Drones equipados com câmeras e sensores multiespectrais capturam imagens processadas por algoritmos de IA. Isso permite detectar precocemente ervas daninhas, pragas, falhas de plantio e aplicar insumos em taxa variável com precisão cirúrgica.</p>
+                        </div>
+                    </div>
 
-    <footer>
-        <p>Reflexão: Produzir mais barato quase sempre significa destruir mais.</p>
-    </footer>
+                    <div class="imagem">
+                        <img src="Foto2.png" alt="Trator autônomo guiado por GPS realizando o plantio de precisão em curvas de nível">
+                    </div>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+                    <div class="accordion-item">
+                        <button class="accordion-header">3. Previsibilidade e Gestão de Riscos</button>
+                        <div class="accordion-body">
+                            <p>A análise de dados climáticos e históricos de produção via IA permite prever o rendimento das colheitas, antecipar eventos climáticos extremos e mitigar perdas financeiras e ambientais antes mesmo de acontecerem.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">4. Automação Inteligente</button>
+                        <div class="accordion-body">
+                            <p>Tratores e maquinários autônomos equipados com GPS e sensores realizam tarefas pesadas como plantio e pulverização sem interrupções, otimizando o tempo operacional e reduzindo a fadiga da mão de obra intensiva.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">5. Melhoria da Qualidade & Rastreabilidade</button>
+                        <div class="accordion-body">
+                            <p>A aplicação precisa reduz o estresse da planta. Além disso, a IA possibilita a rastreabilidade completa de cada etapa da cadeia de suprimentos, garantindo transparência total da fazenda até a mesa do consumidor.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">6. Sustentabilidade Ambiental</button>
+                        <div class="accordion-body">
+                            <p>
+
+
