@@ -1,116 +1,899 @@
  <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lixo na Frente da Escola</title>
+
+    <title>Projeto Escola Limpa</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e8f5e9;
-            text-align: center;
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #eef7ee;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
 
         header {
-            background-color: #2e7d32;
+            background: linear-gradient(135deg, #1b5e20, #43a047);
             color: white;
-            padding: 25px;
+            padding: 50px 20px;
+            text-align: center;
         }
 
-        h1 {
-            margin: 0;
+        header h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
-        .conteudo {
+        header p {
+            font-size: 21px;
+        }
+
+        /* MENU */
+
+        nav {
+            background-color: #0d3b12;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            color: #81c784;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 35px;
+            color: #1b5e20;
+            margin-bottom: 30px;
+        }
+
+        /* INTRODUÇÃO */
+
+        .introducao {
             background-color: white;
-            width: 80%;
-            max-width: 700px;
-            margin: 30px auto;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px #999;
+            text-align: center;
         }
 
-        .lixo {
-            font-size: 60px;
+        .introducao p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 19px;
         }
+
+        .lixeira-grande {
+            font-size: 100px;
+            margin: 20px;
+        }
+
+        /* PROBLEMA */
 
         .problema {
-            color: #c62828;
+            background-color: #ffebee;
         }
 
-        .solucao {
-            color: #2e7d32;
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
         }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card .emoji {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+
+        /* CONSEQUÊNCIAS */
+
+        .consequencias {
+            background-color: #fff8e1;
+        }
+
+        .lista {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .lista div {
+            background-color: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-left: 7px solid #f9a825;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        /* SOLUÇÕES */
+
+        .solucoes {
+            background-color: #e8f5e9;
+        }
+
+        .solucao-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .solucao-card h3 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        /* RECICLAGEM */
+
+        .reciclagem {
+            background-color: #e3f2fd;
+        }
+
+        .cores-lixeiras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .lixeira {
+            padding: 30px 10px;
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .azul {
+            background-color: #1565c0;
+        }
+
+        .vermelha {
+            background-color: #c62828;
+        }
+
+        .verde {
+            background-color: #2e7d32;
+        }
+
+        .amarela {
+            background-color: #f9a825;
+            color: #222;
+        }
+
+        /* CAMPANHA */
+
+        .campanha {
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            color: white;
+            text-align: center;
+        }
+
+        .campanha h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .campanha p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* BOTÃO */
 
         button {
-            background-color: #2e7d32;
-            color: white;
+            margin-top: 30px;
+            padding: 16px 30px;
+            font-size: 18px;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            background-color: white;
+            color: #1b5e20;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
+            transition: 0.3s;
         }
 
         button:hover {
-            background-color: #155219;
+            background-color: #c8e6c9;
+            transform: scale(1.05);
         }
 
         #mensagem {
-            margin-top: 20px;
+            margin-top: 25px;
+            font-size: 22px;
             font-weight: bold;
-            color: #1565c0;
         }
+
+        /* DICAS */
+
+        .dicas {
+            background-color: white;
+        }
+
+        .dica {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #f1f8e9;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dica span {
+            font-size: 40px;
+        }
+
+        /* FRASE */
+
+        .frase {
+            background-color: #263238;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .frase h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .frase p {
+            font-size: 21px;
+            color: #cfd8dc;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background-color: #102513;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            .titulo {
+                font-size: 28px;
+            }
+
+            .campanha h2 {
+                font-size: 29px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
+
+    <!-- CABEÇALHO -->
+
     <header>
-        <h1>🚮 Escola Limpa, Escola Melhor!</h1>
-        <p>Vamos cuidar do espaço em frente à nossa escola.</p>
+
+        <h1>🌎 ESCOLA LIMPA</h1>
+
+        <p>
+            Um projeto para combater o lixo jogado
+            na frente da escola.
+        </p>
+
     </header>
 
-    <div class="conteudo">
 
-        <div class="lixo">🗑️</div>
+    <!-- MENU -->
 
-        <h2 class="problema">O problema</h2>
+    <nav>
+
+        <a href="#inicio">Início</a>
+
+        <a href="#problema">Problema</a>
+
+        <a href="#consequencias">Consequências</a>
+
+        <a href="#solucoes">Soluções</a>
+
+        <a href="#reciclagem">Reciclagem</a>
+
+        <a href="#campanha">Campanha</a>
+
+    </nav>
+
+
+    <!-- INÍCIO -->
+
+    <section id="inicio" class="introducao">
+
+        <div class="container">
+
+            <div class="lixeira-grande">
+                🗑️
+            </div>
+
+            <h2 class="titulo">
+                O lixo na frente da escola
+            </h2>
+
+            <p>
+
+                Jogar lixo no chão é um problema que pode
+                prejudicar toda a comunidade escolar.
+                Garrafas, papéis, embalagens de alimentos,
+                latas e outros resíduos acabam sendo deixados
+                nas calçadas e nas ruas próximas à escola.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                Além de deixar o ambiente com uma aparência
+                desagradável, o lixo pode causar mau cheiro,
+                atrair animais, entupir bueiros e contribuir
+                para a poluição do meio ambiente.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROBLEMA -->
+
+    <section id="problema" class="problema">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                🚨 Qual é o problema?
+            </h2>
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="emoji">
+                        🥤
+                    </div>
+
+                    <h3>
+                        Embalagens
+                    </h3>
+
+                    <p>
+                        Copos, garrafas e embalagens
+                        são deixados nas calçadas.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="emoji">
+                        🍟
+                    </div>
+
+                    <h3>
+                        Restos de alimentos
+                    </h3>
+
+                    <p>
+                        Restos de comida podem atrair
+                        insetos e animais.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="emoji">
+                        📄
+                    </div>
+
+                    <h3>
+                        Papéis no chão
+                    </h3>
+
+                    <p>
+                        Papéis espalhados deixam a
+                        entrada da escola suja.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="emoji">
+                        🧴
+                    </div>
+
+                    <h3>
+                        Plásticos
+                    </h3>
+
+                    <p>
+                        O plástico pode permanecer
+                        muito tempo no ambiente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONSEQUÊNCIAS -->
+
+    <section id="consequencias" class="consequencias">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                ⚠️ Consequências do lixo
+            </h2>
+
+            <div class="lista">
+
+                <div>
+                    🦟 O lixo pode favorecer a presença
+                    de insetos e outros animais.
+                </div>
+
+                <div>
+                    🌧️ Resíduos podem ser carregados
+                    pela chuva para bueiros e córregos.
+                </div>
+
+                <div>
+                    🌳 A poluição prejudica o meio ambiente
+                    e os espaços públicos.
+                </div>
+
+                <div>
+                    👃 O acúmulo de resíduos pode causar
+                    mau cheiro.
+                </div>
+
+                <div>
+                    🏫 A entrada da escola fica com uma
+                    aparência suja e desagradável.
+                </div>
+
+                <div>
+                    🌎 O descarte incorreto aumenta
+                    a quantidade de resíduos no ambiente.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOLUÇÕES -->
+
+    <section id="solucoes" class="solucoes">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                ✅ Como podemos resolver?
+            </h2>
+
+
+            <div class="solucao-card">
+
+                <h3>
+                    🗑️ 1. Colocar mais lixeiras
+                </h3>
+
+                <p>
+                    Instalar lixeiras em locais estratégicos
+                    pode facilitar o descarte correto dos resíduos.
+                </p>
+
+            </div>
+
+
+            <div class="solucao-card">
+
+                <h3>
+                    ♻️ 2. Incentivar a reciclagem
+                </h3>
+
+                <p>
+                    Materiais como papel, plástico, metal
+                    e vidro podem ser separados para reciclagem
+                    quando houver coleta adequada.
+                </p>
+
+            </div>
+
+
+            <div class="solucao-card">
+
+                <h3>
+                    📢 3. Criar campanhas
+                </h3>
+
+                <p>
+                    Cartazes, palestras e campanhas podem
+                    conscientizar estudantes, funcionários
+                    e moradores.
+                </p>
+
+            </div>
+
+
+            <div class="solucao-card">
+
+                <h3>
+                    👥 4. Trabalhar em equipe
+                </h3>
+
+                <p>
+                    Alunos, professores, funcionários,
+                    famílias e comunidade podem ajudar
+                    a manter o espaço limpo.
+                </p>
+
+            </div>
+
+
+            <div class="solucao-card">
+
+                <h3>
+                    🚯 5. Não jogar lixo no chão
+                </h3>
+
+                <p>
+                    Uma atitude simples pode fazer uma
+                    grande diferença: se não houver uma
+                    lixeira próxima, devemos guardar o
+                    resíduo até encontrar uma.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECICLAGEM -->
+
+    <section id="reciclagem" class="reciclagem">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                ♻️ Separação dos resíduos
+            </h2>
+
+            <p style="text-align:center; font-size:19px;">
+
+                A separação correta ajuda no processo
+                de reciclagem.
+
+            </p>
+
+
+            <div class="cores-lixeiras">
+
+                <div class="lixeira azul">
+
+                    📄
+
+                    <br>
+
+                    PAPEL
+
+                </div>
+
+
+                <div class="lixeira vermelha">
+
+                    🥤
+
+                    <br>
+
+                    PLÁSTICO
+
+                </div>
+
+
+                <div class="lixeira verde">
+
+                    🍾
+
+                    <br>
+
+                    VIDRO
+
+                </div>
+
+
+                <div class="lixeira amarela">
+
+                    🥫
+
+                    <br>
+
+                    METAL
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMPANHA -->
+
+    <section id="campanha" class="campanha">
+
+        <div class="container">
+
+            <h2>
+                🌱 Faça parte da mudança!
+            </h2>
+
+            <p>
+
+                Uma escola limpa começa com pequenas
+                atitudes. Não jogar lixo no chão,
+                utilizar as lixeiras e incentivar os
+                colegas são maneiras simples de ajudar.
+
+            </p>
+
+
+            <button onclick="participar()">
+
+                🙋 EU VOU AJUDAR!
+
+            </button>
+
+
+            <div id="mensagem"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DICAS -->
+
+    <section class="dicas">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                💡 Dicas para manter a escola limpa
+            </h2>
+
+
+            <div class="dica">
+
+                <span>🗑️</span>
+
+                <p>
+                    Jogue sempre os resíduos dentro
+                    das lixeiras.
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span>♻️</span>
+
+                <p>
+                    Separe os materiais recicláveis
+                    quando houver coleta seletiva.
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span>🍎</span>
+
+                <p>
+                    Evite deixar restos de alimentos
+                    espalhados pelo chão.
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span>👫</span>
+
+                <p>
+                    Incentive seus amigos a cuidarem
+                    do ambiente escolar.
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span>🌳</span>
+
+                <p>
+                    Cuide das árvores, jardins e
+                    demais espaços da escola.
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span>🌎</span>
+
+                <p>
+                    Lembre-se: cuidar da escola também
+                    é cuidar do meio ambiente.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FRASE FINAL -->
+
+    <section class="frase">
+
+        <div class="container">
+
+            <h2>
+                🌎 "O futuro começa com as nossas atitudes."
+            </h2>
+
+            <p>
+                Juntos podemos transformar a frente
+                da escola em um lugar mais limpo,
+                bonito e agradável para todos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
 
         <p>
-            Muitas pessoas jogam lixo na frente da escola.
-            Isso deixa o local sujo, pode causar mau cheiro,
-            atrair animais e prejudicar o meio ambiente.
+            🌱 Projeto Escola Limpa
         </p>
-
-        <h2 class="solucao">A solução</h2>
 
         <p>
-            Devemos jogar o lixo nas lixeiras, separar os materiais
-            recicláveis e incentivar outras pessoas a manterem
-            a escola e suas proximidades limpas.
+            ♻️ Pela preservação do meio ambiente
         </p>
 
-        <button onclick="mostrarMensagem()">
-            🌱 Quero ajudar!
-        </button>
+        <p>
+            🚯 Não jogue lixo no chão!
+        </p>
 
-        <p id="mensagem"></p>
+        <p>
+            © 2026 - Projeto de conscientização ambiental
+        </p>
 
-    </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
 
     <script>
-        function mostrarMensagem() {
-            document.getElementById("mensagem").innerHTML =
-                "🌎 Parabéns! Cada pessoa fazendo sua parte ajuda a manter nossa escola limpa!";
+
+        function participar() {
+
+            const mensagem =
+                document.getElementById("mensagem");
+
+            mensagem.innerHTML =
+                "🎉 Parabéns! Você decidiu fazer a sua parte! Vamos manter nossa escola limpa! 🌎♻️";
+
         }
+
     </script>
 
-</body>
-</html>
 
-  
+</body>
+
+</html>
