@@ -1,114 +1,1000 @@
  <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lixo na Frente da Escola</title>
+
+    <title>Interclasse 2026 - Grande Torneio</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e8f5e9;
-            text-align: center;
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
-            background-color: #2e7d32;
+            background: linear-gradient(135deg, #071952, #088395, #35A29F);
             color: white;
-            padding: 25px;
+            text-align: center;
+            padding: 70px 20px;
         }
 
-        h1 {
-            margin: 0;
+        header h1 {
+            font-size: 58px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        .conteudo {
-            background-color: white;
-            width: 80%;
-            max-width: 700px;
-            margin: 30px auto;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px #999;
+        header p {
+            font-size: 24px;
         }
 
-        .lixo {
-            font-size: 60px;
+        .trofeu {
+            font-size: 100px;
+            margin-bottom: 15px;
         }
 
-        .problema {
+        /* =========================
+           MENU
+        ========================= */
+
+        nav {
+            background: #06113c;
+            padding: 18px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #35A29F;
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 40px;
+            color: #071952;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           INFORMAÇÕES
+        ========================= */
+
+        .informacoes {
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #eefcff;
+            padding: 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .info-card .icone {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            color: #071952;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           TIMES
+        ========================= */
+
+        .times {
+            background: #e9f7f7;
+        }
+
+        .times-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .time {
+            padding: 35px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .time:hover {
+            transform: scale(1.04);
+        }
+
+        .time .logo {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .time h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .time p {
+            font-size: 17px;
+        }
+
+        .time1 {
+            background: linear-gradient(135deg, #1565c0, #42a5f5);
+        }
+
+        .time2 {
+            background: linear-gradient(135deg, #c62828, #ef5350);
+        }
+
+        .time3 {
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+        }
+
+        .time4 {
+            background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+        }
+
+        .time5 {
+            background: linear-gradient(135deg, #ef6c00, #ffa726);
+        }
+
+        .time6 {
+            background: linear-gradient(135deg, #00695c, #26a69a);
+        }
+
+        /* =========================
+           TABELA
+        ========================= */
+
+        .tabela {
+            background: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #071952;
+            color: white;
+            padding: 18px;
+            font-size: 18px;
+        }
+
+        td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            font-size: 17px;
+        }
+
+        tr:hover {
+            background: #e8f8fa;
+        }
+
+        /* =========================
+           REGRAS
+        ========================= */
+
+        .regras {
+            background: #f5f5f5;
+        }
+
+        .regra {
+            background: white;
+            padding: 22px;
+            margin: 15px 0;
+            border-left: 7px solid #088395;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        /* =========================
+           PREMIAÇÃO
+        ========================= */
+
+        .premiacao {
+            background: linear-gradient(135deg, #fff8e1, #ffe082);
+            text-align: center;
+        }
+
+        .premios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .premio {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .premio .emoji {
+            font-size: 70px;
+        }
+
+        .premio h3 {
+            margin: 15px 0;
+            font-size: 25px;
+        }
+
+        /* =========================
+           CONTAGEM REGRESSIVA
+        ========================= */
+
+        .contagem {
+            background: #06113c;
+            color: white;
+            text-align: center;
+        }
+
+        .contagem h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        #contador {
+            font-size: 45px;
+            font-weight: bold;
+            color: #35A29F;
+            margin-top: 25px;
+        }
+
+        /* =========================
+           AVISO
+        ========================= */
+
+        .aviso {
+            background: #ffebee;
+            text-align: center;
+        }
+
+        .aviso h2 {
             color: #c62828;
+            font-size: 35px;
+            margin-bottom: 20px;
         }
 
-        .solucao {
-            color: #2e7d32;
+        .aviso p {
+            font-size: 20px;
+            max-width: 850px;
+            margin: auto;
         }
+
+        /* =========================
+           BOTÃO
+        ========================= */
 
         button {
-            background-color: #2e7d32;
-            color: white;
+            margin-top: 30px;
+            padding: 16px 30px;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            background: #35A29F;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
         }
 
         button:hover {
-            background-color: #1b5e20;
+            background: #088395;
+            transform: scale(1.05);
         }
 
         #mensagem {
             margin-top: 20px;
+            font-size: 21px;
             font-weight: bold;
-            color: #1565c0;
         }
+
+        /* =========================
+           FRASE FINAL
+        ========================= */
+
+        .final {
+            background: linear-gradient(135deg, #071952, #088395);
+            color: white;
+            text-align: center;
+        }
+
+        .final h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            font-size: 21px;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            background: #020817;
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            header h1 {
+                font-size: 38px;
+            }
+
+            header p {
+                font-size: 18px;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .titulo {
+                font-size: 30px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 10px 5px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header>
-        <h1>🚮 Escola Limpa, Escola Melhor!</h1>
-        <p>Vamos cuidar do espaço em frente à nossa escola.</p>
+
+        <div class="trofeu">🏆</div>
+
+        <h1>INTERCLASSE 2026</h1>
+
+        <p>
+            ⚽ O grande torneio da nossa escola! ⚽
+        </p>
+
+        <p>
+            6 TIMES • MUITA EMOÇÃO • UM GRANDE CAMPEÃO
+        </p>
+
     </header>
 
-    <div class="conteudo">
 
-        <div class="lixo">🗑️</div>
+    <!-- =========================
+         MENU
+    ========================== -->
 
-        <h2 class="problema">O problema</h2>
+    <nav>
+
+        <a href="#inicio">Início</a>
+
+        <a href="#times">Times</a>
+
+        <a href="#jogos">Jogos</a>
+
+        <a href="#regras">Regras</a>
+
+        <a href="#premiacao">Premiação</a>
+
+        <a href="#contador">Contagem</a>
+
+    </nav>
+
+
+    <!-- =========================
+         INFORMAÇÕES
+    ========================== -->
+
+    <section id="inicio" class="informacoes">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                📅 Informações do Interclasse
+            </h2>
+
+            <div class="info-grid">
+
+
+                <div class="info-card">
+
+                    <div class="icone">📅</div>
+
+                    <h3>Dia</h3>
+
+                    <p>Dia 9</p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone">⏰</div>
+
+                    <h3>Horário</h3>
+
+                    <p>08:00 da manhã</p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone">👥</div>
+
+                    <h3>Participantes</h3>
+
+                    <p>6 Times</p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone">🏆</div>
+
+                    <h3>Objetivo</h3>
+
+                    <p>Ser campeão!</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TIMES
+    ========================== -->
+
+    <section id="times" class="times">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                ⚽ OS 6 TIMES
+            </h2>
+
+            <div class="times-grid">
+
+
+                <div class="time time1">
+
+                    <div class="logo">🔵</div>
+
+                    <h3>TIME 1</h3>
+
+                    <p>
+                        Representando sua turma
+                        com muita força e determinação!
+                    </p>
+
+                </div>
+
+
+                <div class="time time2">
+
+                    <div class="logo">🔴</div>
+
+                    <h3>TIME 2</h3>
+
+                    <p>
+                        Um time preparado para
+                        lutar pela vitória!
+                    </p>
+
+                </div>
+
+
+                <div class="time time3">
+
+                    <div class="logo">🟢</div>
+
+                    <h3>TIME 3</h3>
+
+                    <p>
+                        União, velocidade e
+                        espírito de equipe!
+                    </p>
+
+                </div>
+
+
+                <div class="time time4">
+
+                    <div class="logo">🟣</div>
+
+                    <h3>TIME 4</h3>
+
+                    <p>
+                        Entrando em campo
+                        para buscar o título!
+                    </p>
+
+                </div>
+
+
+                <div class="time time5">
+
+                    <div class="logo">🟠</div>
+
+                    <h3>TIME 5</h3>
+
+                    <p>
+                        Determinação para
+                        chegar até a final!
+                    </p>
+
+                </div>
+
+
+                <div class="time time6">
+
+                    <div class="logo">🟢</div>
+
+                    <h3>TIME 6</h3>
+
+                    <p>
+                        Um grupo unido em busca
+                        da grande vitória!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOGOS
+    ========================== -->
+
+    <section id="jogos" class="tabela">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                🏟️ Tabela de Jogos
+            </h2>
+
+            <table>
+
+                <tr>
+                    <th>Jogo</th>
+                    <th>Time A</th>
+                    <th>Time B</th>
+                    <th>Horário</th>
+                </tr>
+
+                <tr>
+                    <td>⚽ Jogo 1</td>
+                    <td>Time 1</td>
+                    <td>Time 2</td>
+                    <td>08:00</td>
+                </tr>
+
+                <tr>
+                    <td>⚽ Jogo 2</td>
+                    <td>Time 3</td>
+                    <td>Time 4</td>
+                    <td>08:30</td>
+                </tr>
+
+                <tr>
+                    <td>⚽ Jogo 3</td>
+                    <td>Time 5</td>
+                    <td>Time 6</td>
+                    <td>09:00</td>
+                </tr>
+
+                <tr>
+                    <td>🏆 Semifinal 1</td>
+                    <td>A definir</td>
+                    <td>A definir</td>
+                    <td>09:30</td>
+                </tr>
+
+                <tr>
+                    <td>🏆 Semifinal 2</td>
+                    <td>A definir</td>
+                    <td>A definir</td>
+                    <td>10:00</td>
+                </tr>
+
+                <tr>
+                    <td>🥇 GRANDE FINAL</td>
+                    <td>A definir</td>
+                    <td>A definir</td>
+                    <td>10:30</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGRAS
+    ========================== -->
+
+    <section id="regras" class="regras">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                📋 Regras do Interclasse
+            </h2>
+
+
+            <div class="regra">
+                ⚽ Todos os jogadores devem respeitar os
+                colegas, adversários e árbitros.
+            </div>
+
+            <div class="regra">
+                🤝 O espírito de equipe deve estar presente
+                durante toda a competição.
+            </div>
+
+            <div class="regra">
+                🚫 Não serão permitidas brigas ou atitudes
+                desrespeitosas.
+            </div>
+
+            <div class="regra">
+                🏃 Cada jogador deve participar com
+                responsabilidade e dedicação.
+            </div>
+
+            <div class="regra">
+                🧑‍⚖️ As decisões da arbitragem devem ser
+                respeitadas.
+            </div>
+
+            <div class="regra">
+                ❤️ O principal objetivo é competir,
+                se divertir e representar a escola.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PREMIAÇÃO
+    ========================== -->
+
+    <section id="premiacao" class="premiacao">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                🏆 Premiação
+            </h2>
+
+            <div class="premios">
+
+
+                <div class="premio">
+
+                    <div class="emoji">🥇</div>
+
+                    <h3>1º Lugar</h3>
+
+                    <p>
+                        Grande campeão do Interclasse!
+                    </p>
+
+                </div>
+
+
+                <div class="premio">
+
+                    <div class="emoji">🥈</div>
+
+                    <h3>2º Lugar</h3>
+
+                    <p>
+                        Vice-campeão da competição.
+                    </p>
+
+                </div>
+
+
+                <div class="premio">
+
+                    <div class="emoji">🥉</div>
+
+                    <h3>3º Lugar</h3>
+
+                    <p>
+                        Terceiro colocado.
+                    </p>
+
+                </div>
+
+
+                <div class="premio">
+
+                    <div class="emoji">🏆</div>
+
+                    <h3>Trofeu</h3>
+
+                    <p>
+                        O grande troféu será disputado
+                        pelos seis times!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTAGEM
+    ========================== -->
+
+    <section class="contagem">
+
+        <div class="container">
+
+            <h2>
+                ⏳ CONTAGEM REGRESSIVA
+            </h2>
+
+            <p>
+                Prepare-se! O Interclasse começa
+                no dia 9 às 08:00 da manhã!
+            </p>
+
+            <div id="contador">
+                INTERCLASSE!
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         AVISO
+    ========================== -->
+
+    <section class="aviso">
+
+        <div class="container">
+
+            <h2>
+                📢 ATENÇÃO, ALUNOS!
+            </h2>
+
+            <p>
+
+                O grande Interclasse acontecerá no
+                <strong>dia 9, às 8 horas da manhã</strong>.
+
+                Os seis times deverão estar preparados
+                para disputar os jogos e mostrar todo
+                o seu talento.
+
+            </p>
+
+            <p style="margin-top:20px;">
+
+                🏃 Prepare-se!<br>
+                ⚽ Treine bastante!<br>
+                🤝 Respeite os adversários!<br>
+                🏆 E venha buscar o título!
+
+            </p>
+
+
+            <button onclick="confirmar()">
+                🙋 EU VOU PARTICIPAR!
+            </button>
+
+            <div id="mensagem"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FRASE FINAL
+    ========================== -->
+
+    <section class="final">
+
+        <div class="container">
+
+            <h2>
+                🏆 UM TIME. UMA ESCOLA. UM SONHO.
+            </h2>
+
+            <p>
+                Que vença o melhor, mas que todos
+                saiam como campeões pela amizade,
+                respeito e diversão!
+            </p>
+
+            <br>
+
+            <p>
+                ⚽ DIA 9 • ⏰ 08:00 • 👥 6 TIMES
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
 
         <p>
-            Muitas pessoas jogam lixo na frente da escola.
-            Isso deixa o local sujo, pode causar mau cheiro,
-            atrair animais e prejudicar o meio ambiente.
+            🏆 INTERCLASSE 2026
         </p>
-
-        <h2 class="solucao">A solução</h2>
 
         <p>
-            Devemos jogar o lixo nas lixeiras, separar os materiais
-            recicláveis e incentivar outras pessoas a manterem
-            a escola e suas proximidades limpas.
+            ⚽ 6 TIMES • UM GRANDE CAMPEÃO
         </p>
 
-        <button onclick="mostrarMensagem()">
-            🌱 Quero ajudar!
-        </button>
+        <p>
+            📅 Dia 9 às 08:00 da manhã
+        </p>
 
-        <p id="mensagem"></p>
+        <p>
+            © 2026 - Projeto Interclasse
+        </p>
 
-    </div>
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
-        function mostrarMensagem() {
+
+        function confirmar() {
+
             document.getElementById("mensagem").innerHTML =
-                "🌎 Parabéns! Cada pessoa fazendo sua parte ajuda a manter nossa escola limpa!";
+                "🔥 Presença confirmada! Prepare-se para o Interclasse! 🏆⚽";
+
         }
+
+
+        /* Contagem simples */
+
+        let contador = 10;
+
+        setInterval(function() {
+
+            if (contador > 0) {
+
+                document.getElementById("contador").innerHTML =
+                    "🔥 FALTAM " + contador + " DIAS! 🔥";
+
+                contador--;
+
+            } else {
+
+                document.getElementById("contador").innerHTML =
+                    "🏆 É HOJE! BOA SORTE AOS 6 TIMES! ⚽";
+
+            }
+
+        }, 1000);
+
     </script>
 
+
 </body>
+
 </html>
