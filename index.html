@@ -1,96 +1,588 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroFuturo - Sustentabilidade e Inteligência Artificial</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>Copa do Mundo 2026</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #07111f;
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(135deg, #006847, #00a878, #d4af37);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px #0008;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background: #050b14;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav button {
+            background: #162337;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav button:hover {
+            background: #00a878;
+            transform: translateY(-2px);
+        }
+
+        main {
+            width: 92%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        .hero {
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(#0008, #0008),
+                radial-gradient(circle at center, #00a878, #07111f 70%);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #101c2e;
+            border: 1px solid #243653;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00d69a;
+        }
+
+        .card .emoji {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00d69a;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        .groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .group {
+            background: #101c2e;
+            border-radius: 15px;
+            padding: 20px;
+            border-top: 4px solid #00a878;
+        }
+
+        .group table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px 5px;
+            text-align: center;
+            border-bottom: 1px solid #263952;
+        }
+
+        th {
+            color: #00d69a;
+        }
+
+        .team {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .matches {
+            display: grid;
+            gap: 15px;
+        }
+
+        .match {
+            background: #101c2e;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #d4af37;
+        }
+
+        .match strong {
+            font-size: 18px;
+        }
+
+        .score {
+            font-size: 25px;
+            color: #00d69a;
+            font-weight: bold;
+        }
+
+        .simulator {
+            background: #101c2e;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0 15px;
+            border-radius: 10px;
+            border: none;
+            background: #1c2b40;
+            color: white;
+            font-size: 16px;
+        }
+
+        .simulate {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #00a878;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .simulate:hover {
+            background: #00d69a;
+        }
+
+        #resultado {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 22px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #050b14;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .champion {
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #d4af37, #8b6914);
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .match {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="acessibilidade-container" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btn-aumentar" aria-label="Aumentar texto">A+</button>
-        <button id="btn-diminuir" aria-label="Diminuir texto">A-</button>
-        <button id="btn-tema" aria-label="Alternar modo escuro e claro">🌓</button>
-        <button id="btn-ler" aria-label="Ouvir texto principal">▶ Ouvir</button>
-        <button id="btn-parar" aria-label="Parar leitura de voz">⏹ Parar</button>
-    </div>
+<header>
+    <h1>🏆 COPA DO MUNDO 2026</h1>
+    <p>Estados Unidos 🇺🇸 • Canadá 🇨🇦 • México 🇲🇽</p>
+</header>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Tecnologia Agrícola Reforça o Papel do Brasil</h1>
-            <p>O equilíbrio perfeito entre produção em escala, inovação digital e preservação ambiental para o futuro do planeta.</p>
-            <a href="#conteudo-principal" class="btn-primary">Explorar Inovações</a>
+<nav>
+    <button onclick="mostrar('inicio')">🏠 Início</button>
+    <button onclick="mostrar('grupos')">📊 Grupos</button>
+    <button onclick="mostrar('jogos')">⚽ Jogos</button>
+    <button onclick="mostrar('simulador')">🎮 Simulador</button>
+</nav>
+
+<main>
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="active">
+
+        <div class="hero">
+            <div>
+                <h2>🌎 A maior Copa da história!</h2>
+                <p>
+                    Acompanhe seleções, grupos, partidas e
+                    simule seus próprios resultados.
+                </p>
+            </div>
         </div>
-    </header>
 
-    <div class="main-layout" id="conteudo-principal">
-        
-        <main class="conteudo-principal">
-            
-            <section class="artigo-introducao">
-                <h2>O Ouro da Inteligência no Campo</h2>
-                <p>A agricultura sustentável ganha espaço no debate global em um momento de pressão sobre custos, segurança alimentar, energia e mudanças climáticas. Esse cenário coloca o Brasil em posição de destaque por unir produtividade, inovação e capacidade de adaptação no campo.</p>
-                <p>O avanço de tecnologias baseadas no uso de microrganismos nas lavouras, como o trabalho premiado da microbiologista Mariangela Hungria com bactérias que capturam nitrogênio do ar, mostra como o país lidera a transição para reduzir a dependência de fertilizantes químicos industriais.</p>
-            </section>
+        <div class="cards">
 
-            <div class="imagem">
-                <img src="Foto1.jpg" alt="Drone sobrevoando plantação monitorando a saúde da lavoura com sensores de alta precisão">
+            <div class="card">
+                <div class="emoji">🏟️</div>
+                <h3>48 Seleções</h3>
+                <p>O torneio contará com 48 seleções participantes.</p>
             </div>
 
-            <section class="ia-beneficios">
-                <h2>Quais os Principais Benefícios da Inteligência Artificial no Campo?</h2>
-                <p>A Inteligência Artificial (IA) promete revolucionar o setor agrícola. Ela permite a otimização de recursos naturais finitos, automatização de processos complexos e o aumento da resiliência frente às adversidades climáticas.</p>
-                
-                <div class="accordion">
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-header">1. Otimização de Recursos</button>
-                        <div class="accordion-body">
-                            <p>Sistemas de irrigação inteligentes e sensores monitoram constantemente as condições do solo e das plantas, ajustando a água de acordo com a necessidade real. Isso reduz o desperdício e melhora drasticamente a saúde das culturas.</p>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="emoji">🌎</div>
+                <h3>3 Países</h3>
+                <p>Canadá, México e Estados Unidos receberão os jogos.</p>
+            </div>
 
-                    <div class="accordion-item">
-                        <button class="accordion-header">2. Monitoramento de Culturas</button>
-                        <div class="accordion-body">
-                            <p>Drones equipados com câmeras e sensores multiespectrais capturam imagens processadas por algoritmos de IA. Isso permite detectar precocemente ervas daninhas, pragas, falhas de plantio e aplicar insumos em taxa variável com precisão cirúrgica.</p>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="emoji">⚽</div>
+                <h3>Grande Torneio</h3>
+                <p>Uma nova era para o maior torneio do futebol mundial.</p>
+            </div>
 
-                    <div class="imagem">
-                        <img src="Foto2.jpg" alt="Trator autônomo guiado por GPS realizando o plantio de precisão em curvas de nível">
-                    </div>
+        </div>
 
-                    <div class="accordion-item">
-                        <button class="accordion-header">3. Previsibilidade e Gestão de Riscos</button>
-                        <div class="accordion-body">
-                            <p>A análise de dados climáticos e históricos de produção via IA permite prever o rendimento das colheitas, antecipar eventos climáticos extremos e mitigar perdas financeiras e ambientais antes mesmo de acontecerem.</p>
-                        </div>
-                    </div>
+        <div class="champion">
+            🏆 Quem será o campeão de 2026?
+        </div>
 
-                    <div class="accordion-item">
-                        <button class="accordion-header">4. Automação Inteligente</button>
-                        <div class="accordion-body">
-                            <p>Tratores e maquinários autônomos equipados com GPS e sensores realizam tarefas pesadas como plantio e pulverização sem interrupções, otimizando o tempo operacional e reduzindo a fadiga da mão de obra intensiva.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">5. Melhoria da Qualidade & Rastreabilidade</button>
-                        <div class="accordion-body">
-                            <p>A aplicação precisa reduz o estresse da planta. Além disso, a IA possibilita a rastreabilidade completa de cada etapa da cadeia de suprimentos, garantindo transparência total da fazenda até a mesa do consumidor.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header">6. Sustentabilidade Ambiental</button>
-                        <div class="accordion-body">
-                            <p>
+    </section>
 
 
+    <!-- GRUPOS -->
+    <section id="grupos">
+
+        <h2>📊 Grupos</h2>
+
+        <div class="groups" id="listaGrupos"></div>
+
+    </section>
+
+
+    <!-- JOGOS -->
+    <section id="jogos">
+
+        <h2>⚽ Próximos jogos</h2>
+
+        <div class="matches">
+
+            <div class="match">
+                <strong>🇧🇷 Brasil</strong>
+                <span class="score">VS</span>
+                <strong>🇦🇷 Argentina</strong>
+            </div>
+
+            <div class="match">
+                <strong>🇫🇷 França</strong>
+                <span class="score">VS</span>
+                <strong>🇩🇪 Alemanha</strong>
+            </div>
+
+            <div class="match">
+                <strong>🇪🇸 Espanha</strong>
+                <span class="score">VS</span>
+                <strong>🇵🇹 Portugal</strong>
+            </div>
+
+            <div class="match">
+                <strong>🇺🇸 Estados Unidos</strong>
+                <span class="score">VS</span>
+                <strong>🇲🇽 México</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIMULADOR -->
+    <section id="simulador">
+
+        <h2>🎮 Simulador de partida</h2>
+
+        <div class="simulator">
+
+            <label>Seleção 1</label>
+
+            <select id="time1">
+                <option>🇧🇷 Brasil</option>
+                <option>🇦🇷 Argentina</option>
+                <option>🇫🇷 França</option>
+                <option>🇩🇪 Alemanha</option>
+                <option>🇪🇸 Espanha</option>
+                <option>🇵🇹 Portugal</option>
+                <option>🇺🇸 Estados Unidos</option>
+                <option>🇲🇽 México</option>
+            </select>
+
+            <label>Seleção 2</label>
+
+            <select id="time2">
+                <option>🇦🇷 Argentina</option>
+                <option>🇧🇷 Brasil</option>
+                <option>🇫🇷 França</option>
+                <option>🇩🇪 Alemanha</option>
+                <option>🇪🇸 Espanha</option>
+                <option>🇵🇹 Portugal</option>
+                <option>🇺🇸 Estados Unidos</option>
+                <option>🇲🇽 México</option>
+            </select>
+
+            <button class="simulate" onclick="simular()">
+                ⚽ SIMULAR PARTIDA
+            </button>
+
+            <div id="resultado"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>🏆 Copa do Mundo 2026 — Projeto feito em HTML, CSS e JavaScript</p>
+</footer>
+
+
+<script>
+
+    // Navegação
+    function mostrar(secao) {
+
+        document.querySelectorAll("section").forEach(function(section) {
+            section.classList.remove("active");
+        });
+
+        document.getElementById(secao).classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    // Grupos de exemplo
+    const grupos = {
+
+        "Grupo A": [
+            "🇺🇸 Estados Unidos",
+            "🇲🇽 México",
+            "🇨🇦 Canadá",
+            "🇧🇷 Brasil"
+        ],
+
+        "Grupo B": [
+            "🇦🇷 Argentina",
+            "🇫🇷 França",
+            "🇩🇪 Alemanha",
+            "🇵🇹 Portugal"
+        ],
+
+        "Grupo C": [
+            "🇪🇸 Espanha",
+            "🇮🇹 Itália",
+            "🇳🇱 Holanda",
+            "🇯🇵 Japão"
+        ],
+
+        "Grupo D": [
+            "🇬🇧 Inglaterra",
+            "🇺🇾 Uruguai",
+            "🇭🇷 Croácia",
+            "🇨🇴 Colômbia"
+        ]
+
+    };
+
+
+    // Criar tabelas automaticamente
+    const container = document.getElementById("listaGrupos");
+
+    for (const grupo in grupos) {
+
+        let html = `
+            <div class="group">
+
+                <h3>${grupo}</h3>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Seleção</th>
+                            <th>J</th>
+                            <th>V</th>
+                            <th>E</th>
+                            <th>D</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+        `;
+
+        grupos[grupo].forEach(function(time) {
+
+            html += `
+                <tr>
+                    <td class="team">${time}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            `;
+
+        });
+
+        html += `
+                    </tbody>
+
+                </table>
+
+            </div>
+        `;
+
+        container.innerHTML += html;
+    }
+
+
+    // Simulador
+    function simular() {
+
+        const time1 = document.getElementById("time1").value;
+        const time2 = document.getElementById("time2").value;
+
+        if (time1 === time2) {
+
+            document.getElementById("resultado").innerHTML =
+                "❌ Escolha duas seleções diferentes.";
+
+            return;
+        }
+
+        const gols1 = Math.floor(Math.random() * 6);
+        const gols2 = Math.floor(Math.random() * 6);
+
+        let mensagem = "";
+
+        if (gols1 > gols2) {
+
+            mensagem = `🏆 ${time1} venceu!`;
+
+        } else if (gols2 > gols1) {
+
+            mensagem = `🏆 ${time2} venceu!`;
+
+        } else {
+
+            mensagem = "🤝 A partida terminou empatada!";
+
+        }
+
+        document.getElementById("resultado").innerHTML = `
+            <div style="margin-bottom:10px">
+                ${time1} 
+                <strong>${gols1}</strong>
+                ×
+                <strong>${gols2}</strong>
+                ${time2}
+            </div>
+
+            <div>
+                ${mensagem}
+            </div>
+        `;
+    }
+
+</script>
+
+</body>
+</html>
