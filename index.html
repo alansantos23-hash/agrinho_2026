@@ -1,120 +1,116 @@
- Organizador de Estudos IA — index.html
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>StudyAI — Organizador de Estudos</title>
+    <title>Lixo na Frente da Escola</title>
 
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
             margin: 0;
             padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
         }
 
-        body {
-            background: #f4f7fb;
-            color: #182033;
-        }
-
-        /* ===== SIDEBAR ===== */
-
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 240px;
-            height: 100vh;
-            background: linear-gradient(180deg, #24104f, #44228b);
+        header {
+            background-color: #2e7d32;
             color: white;
-            padding: 25px 15px;
-            z-index: 10;
+            padding: 25px;
         }
 
-        .logo {
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 35px;
+        h1 {
+            margin: 0;
         }
 
-        .logo span {
-            color: #bca2ff;
+        .conteudo {
+            background-color: white;
+            width: 80%;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #999;
         }
 
-        .menu button {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 10px;
+        .lixo {
+            font-size: 60px;
+        }
+
+        .problema {
+            color: #c62828;
+        }
+
+        .solucao {
+            color: #2e7d32;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
             border: none;
-            border-radius: 10px;
-            background: transparent;
-            color: #ddd;
-            text-align: left;
-            font-size: 15px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: .2s;
+            font-size: 16px;
         }
 
-        .menu button:hover,
-        .menu button.active {
-            background: rgba(255,255,255,.15);
-            color: white;
+        button:hover {
+            background-color: #1b5e20;
         }
 
-        /* ===== CONTEÚDO ===== */
-
-        .content {
-            margin-left: 240px;
-            padding: 30px;
+        #mensagem {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #1565c0;
         }
+    </style>
+</head>
 
-        .page {
-            display: none;
-            animation: fade .3s ease;
+<body>
+
+    <header>
+        <h1>🚮 Escola Limpa, Escola Melhor!</h1>
+        <p>Vamos cuidar do espaço em frente à nossa escola.</p>
+    </header>
+
+    <div class="conteudo">
+
+        <div class="lixo">🗑️</div>
+
+        <h2 class="problema">O problema</h2>
+
+        <p>
+            Muitas pessoas jogam lixo na frente da escola.
+            Isso deixa o local sujo, pode causar mau cheiro,
+            atrair animais e prejudicar o meio ambiente.
+        </p>
+
+        <h2 class="solucao">A solução</h2>
+
+        <p>
+            Devemos jogar o lixo nas lixeiras, separar os materiais
+            recicláveis e incentivar outras pessoas a manterem
+            a escola e suas proximidades limpas.
+        </p>
+
+        <button onclick="mostrarMensagem()">
+            🌱 Quero ajudar!
+        </button>
+
+        <p id="mensagem"></p>
+
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            document.getElementById("mensagem").innerHTML =
+                "🌎 Parabéns! Cada pessoa fazendo sua parte ajuda a manter nossa escola limpa!";
         }
+    </script>
 
-        .page.active {
-            display: block;
-        }
+</body>
+</html>
 
-        @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .top h1 {
-            font-size: 30px;
-        }
-
-        .date {
-            color: #777;
-        }
-
-        /* ===== CARDS ===== */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 18px;
-            margin-bottom: 25px;
-        }
-
-        .card {
+  
