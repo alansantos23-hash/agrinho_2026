@@ -1,129 +1,683 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Mental - História Econômica do Paraná</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #e8f5e9, #fff8e1);
-            color: #222;
-        }
+<title>Mapa Mental - História Econômica do Paraná</title>
 
-        h1 {
-            text-align: center;
-            color: #1b5e20;
-            margin-top: 25px;
-        }
+<style>
 
-        .mapa {
-            width: 95%;
-            max-width: 1100px;
-            margin: 30px auto;
-            position: relative;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .centro {
-            background: #2e7d32;
-            color: white;
-            width: 260px;
-            padding: 25px;
-            border-radius: 50%;
-            text-align: center;
-            margin: 80px auto;
-            box-shadow: 0 5px 15px #777;
-            font-size: 20px;
-            font-weight: bold;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        linear-gradient(rgba(232,245,233,0.95), rgba(255,248,225,0.95));
+    color: #222;
+}
 
-        .ramo {
-            display: flex;
-            justify-content: space-around;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+/* TÍTULO */
 
-        .card {
-            flex: 1;
-            min-width: 280px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px #aaa;
-            border-top: 7px solid #f9a825;
-        }
+header {
+    text-align: center;
+    padding: 35px 15px;
+    background: #1b5e20;
+    color: white;
+}
 
-        .card h2 {
-            color: #1565c0;
-            text-align: center;
-        }
+header h1 {
+    margin: 0;
+    font-size: 44px;
+}
 
-        .card ul {
-            line-height: 1.8;
-        }
+header p {
+    font-size: 20px;
+    margin-top: 10px;
+}
 
-        .agricultura {
-            border-top-color: #43a047;
-        }
+/* MAPA */
 
-        .industria {
-            border-top-color: #ef6c00;
-        }
+.container {
+    width: 95%;
+    max-width: 1500px;
+    margin: 40px auto;
+}
 
-        .conclusao {
-            margin-top: 35px;
-            background: #fff3cd;
-            border: 2px solid #f9a825;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-        }
+/* CENTRO */
 
-        .prof {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: #4e342e;
-        }
-    </style>
+.centro {
+    width: 430px;
+    height: 210px;
+    margin: 40px auto 70px;
+
+    background: #2e7d32;
+    color: white;
+
+    border-radius: 50%;
+    border: 10px solid #a5d6a7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* RAMOS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+/* CARTÕES */
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+
+    box-shadow: 0 7px 18px rgba(0,0,0,0.25);
+
+    border-top: 10px solid;
+
+    min-height: 360px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.card h2 {
+    text-align: center;
+    font-size: 27px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.card ul {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* CORES */
+
+.mate {
+    border-color: #388e3c;
+}
+
+.madeira {
+    border-color: #795548;
+}
+
+.cafe {
+    border-color: #6d4c41;
+}
+
+.agricultura {
+    border-color: #43a047;
+}
+
+.industria {
+    border-color: #ef6c00;
+}
+
+.transporte {
+    border-color: #1565c0;
+}
+
+.cooperativa {
+    border-color: #8e24aa;
+}
+
+.urbanizacao {
+    border-color: #00838f;
+}
+
+.atual {
+    border-color: #f9a825;
+}
+
+/* LINHA DO TEMPO */
+
+.timeline {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 35px;
+    margin-top: 50px;
+
+    box-shadow: 0 7px 20px rgba(0,0,0,0.25);
+}
+
+.timeline h2 {
+    text-align: center;
+    color: #1b5e20;
+    font-size: 32px;
+}
+
+.periodo {
+    margin: 25px 0;
+    padding: 22px;
+
+    border-left: 8px solid #2e7d32;
+    background: #f1f8e9;
+    border-radius: 10px;
+}
+
+.periodo h3 {
+    color: #1b5e20;
+    font-size: 23px;
+}
+
+.periodo p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* CONCLUSÃO */
+
+.conclusao {
+    margin-top: 45px;
+
+    background: #fff3cd;
+
+    border: 4px solid #ffb300;
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow: 0 7px 18px rgba(0,0,0,0.2);
+}
+
+.conclusao h2 {
+    text-align: center;
+    color: #e65100;
+    font-size: 31px;
+}
+
+.conclusao p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* PROFESSOR */
+
+.professor {
+    margin-top: 50px;
+
+    background: #263238;
+    color: white;
+
+    text-align: center;
+
+    padding: 35px;
+
+    border-radius: 20px 20px 0 0;
+
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 1000px) {
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media(max-width: 700px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .centro {
+        width: 310px;
+        height: 170px;
+        font-size: 24px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <h1>Mapa Mental</h1>
+<header>
 
-    <div class="mapa">
+    <h1>📚 HISTÓRIA ECONÔMICA DO PARANÁ</h1>
 
-        <div class="centro">
-            HISTÓRIA ECONÔMICA<br>
-            DO PARANÁ
-        </div>
+    <p>
+        Mapa Mental — Agricultura, Indústria e Desenvolvimento Econômico
+    </p>
 
-        <div class="ramo">
+</header>
 
-            <div class="card agricultura">
-                <h2>🌱 Agricultura</h2>
-                <ul>
-                    <li>Ciclo da erva-mate</li>
-                    <li>Produção de café</li>
-                    <li>Expansão da agricultura</li>
-                    <li>Soja, milho e trigo</li>
-                    <li>Pecuária</li>
-                    <li>Cooperativas agrícolas</li>
-                    <li>Modernização do campo</li>
-                </ul>
-            </div>
+<div class="container">
 
-            <div class="card industria">
-                <h2>🏭 Indústria</h2>
-                <ul>
-                    <li>Beneficiamento da erva-mate</li>
-                    <li>Indústrias madeireiras</li>
-                    <li>Indústria alimentícia</li>
-                    <li>Indústria automobilística</li>
-                    <li>Produção de máquinas e equipamentos</li>
-                    <li>
+<!-- CENTRO -->
+
+<div class="centro">
+
+    HISTÓRIA ECONÔMICA<br>
+    DO PARANÁ
+
+</div>
+
+
+<!-- PRIMEIRA LINHA -->
+
+<div class="grid">
+
+<!-- ERVA MATE -->
+
+<div class="card mate">
+
+<h2>🍃 ERVA-MATE</h2>
+
+<h3>Importância histórica</h3>
+
+<p>
+A erva-mate foi um dos primeiros produtos responsáveis
+pelo crescimento econômico do Paraná. Sua exploração,
+beneficiamento e comercialização ajudaram a desenvolver
+atividades comerciais e urbanas.
+</p>
+
+<ul>
+
+<li>Exploração das áreas de erva-mate;</li>
+
+<li>Beneficiamento do produto;</li>
+
+<li>Comércio regional;</li>
+
+<li>Exportação;</li>
+
+<li>Geração de empregos;</li>
+
+<li>Fortalecimento de cidades;</li>
+
+<li>Desenvolvimento de transportes.</li>
+
+</ul>
+
+</div>
+
+
+<!-- MADEIRA -->
+
+<div class="card madeira">
+
+<h2>🌲 MADEIRA</h2>
+
+<h3>Exploração florestal</h3>
+
+<p>
+A exploração da madeira ganhou importância econômica
+com a ocupação de novas áreas e a expansão das ferrovias.
+Pinheiros e outras espécies foram utilizados pela indústria.
+</p>
+
+<ul>
+
+<li>Extração de madeira;</li>
+
+<li>Serrarias;</li>
+
+<li>Produção de tábuas;</li>
+
+<li>Construção civil;</li>
+
+<li>Exportação;</li>
+
+<li>Geração de empregos;</li>
+
+<li>Desenvolvimento de municípios.</li>
+
+</ul>
+
+</div>
+
+
+<!-- CAFÉ -->
+
+<div class="card cafe">
+
+<h2>☕ CAFÉ</h2>
+
+<h3>Expansão no Norte do Paraná</h3>
+
+<p>
+O café teve grande importância econômica no século XX,
+principalmente no Norte do Paraná. A expansão da cafeicultura
+atraiu trabalhadores, comerciantes e investimentos.
+</p>
+
+<ul>
+
+<li>Grandes áreas de cultivo;</li>
+
+<li>Chegada de migrantes;</li>
+
+<li>Criação de novas cidades;</li>
+
+<li>Expansão das ferrovias;</li>
+
+<li>Comércio de café;</li>
+
+<li>Exportação;</li>
+
+<li>Crescimento econômico regional.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- SEGUNDA LINHA -->
+
+<div class="grid">
+
+<!-- AGRICULTURA -->
+
+<div class="card agricultura">
+
+<h2>🌱 AGRICULTURA</h2>
+
+<h3>Modernização do campo</h3>
+
+<p>
+A agricultura tornou-se uma das principais bases da economia
+paranaense. Com o avanço tecnológico, a produção passou
+a utilizar máquinas, fertilizantes e novas técnicas agrícolas.
+</p>
+
+<ul>
+
+<li>Soja;</li>
+
+<li>Milho;</li>
+
+<li>Trigo;</li>
+
+<li>Feijão;</li>
+
+<li>Café;</li>
+
+<li>Arroz;</li>
+
+<li>Produção de carnes;</li>
+
+<li>Pecuária;</li>
+
+<li>Mecanização agrícola;</li>
+
+<li>Agroindústria.</li>
+
+</ul>
+
+</div>
+
+
+<!-- INDÚSTRIA -->
+
+<div class="card industria">
+
+<h2>🏭 INDÚSTRIA</h2>
+
+<h3>Industrialização</h3>
+
+<p>
+A industrialização diversificou a economia do Paraná,
+diminuindo a dependência exclusiva das atividades
+agropecuárias.
+</p>
+
+<ul>
+
+<li>Indústria alimentícia;</li>
+
+<li>Papel e celulose;</li>
+
+<li>Madeireira;</li>
+
+<li>Química;</li>
+
+<li>Máquinas e equipamentos;</li>
+
+<li>Automobilística;</li>
+
+<li>Metalurgia;</li>
+
+<li>Beneficiamento de produtos agrícolas.</li>
+
+</ul>
+
+</div>
+
+
+<!-- TRANSPORTE -->
+
+<div class="card transporte">
+
+<h2>🚂 TRANSPORTES</h2>
+
+<h3>Integração econômica</h3>
+
+<p>
+O desenvolvimento dos transportes foi fundamental para
+levar produtos agrícolas e industriais aos mercados
+consumidores.
+</p>
+
+<ul>
+
+<li>Ferrovias;</li>
+
+<li>Estradas;</li>
+
+<li>Rodovias;</li>
+
+<li>Portos;</li>
+
+<li>Transporte de café;</li>
+
+<li>Transporte de madeira;</li>
+
+<li>Transporte de grãos;</li>
+
+<li>Ligação entre cidades e regiões.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- TERCEIRA LINHA -->
+
+<div class="grid">
+
+<!-- COOPERATIVAS -->
+
+<div class="card cooperativa">
+
+<h2>🤝 COOPERATIVAS</h2>
+
+<h3>Organização dos produtores</h3>
+
+<p>
+As cooperativas tiveram papel importante na organização
+da produção agrícola e na comercialização dos produtos.
+</p>
+
+<ul>
+
+<li>Armazenamento de grãos;</li>
+
+<li>Venda da produção;</li>
+
+<li>Assistência aos agricultores;</li>
+
+<li>Compra de insumos;</li>
+
+<li>Uso de tecnologia;</li>
+
+<li>Agroindústria;</li>
+
+<li>Geração de renda;</li>
+
+<li>Fortalecimento da agricultura.</li>
+
+</ul>
+
+</div>
+
+
+<!-- URBANIZAÇÃO -->
+
+<div class="card urbanizacao">
+
+<h2>🏙️ URBANIZAÇÃO</h2>
+
+<h3>Crescimento das cidades</h3>
+
+<p>
+O crescimento das atividades agrícolas e industriais
+provocou mudanças na organização do território e
+aumentou a população das cidades.
+</p>
+
+<ul>
+
+<li>Crescimento urbano;</li>
+
+<li>Novos empregos;</li>
+
+<li>Comércio;</li>
+
+<li>Serviços;</li>
+
+<li>Construção de infraestrutura;</li>
+
+<li>Expansão das cidades;</li>
+
+<li>Maior circulação de pessoas.</li>
+
+</ul>
+
+</div>
+
+
+<!-- ECONOMIA ATUAL -->
+
+<div class="card atual">
+
+<h2>📈 ECONOMIA ATUAL</h2>
+
+<h3>Diversificação econômica</h3>
+
+<p>
+Atualmente, o Paraná possui uma economia diversificada,
+com forte presença da agropecuária, indústria, comércio
+e setor de serviços.
+</p>
+
+<ul>
+
+<li>Agronegócio;</li>
+
+<li>Indústria de alimentos;</li>
+
+<li>Automóveis;</li>
+
+<li>Papel e celulose;</li>
+
+<li>Cooperativas;</li>
+
+<li>Comércio;</li>
+
+<li>Serviços;</li>
+
+<li>Exportações.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- LINHA DO TEMPO -->
+
+<div class="timeline">
+
+<h2>⏳ LINHA DO TEMPO DA ECONOMIA DO PARANÁ</h2>
+
+
+<div class="periodo">
+
+<h3>1️⃣ Período da erva-mate</h3>
+
+<p>
+A erva-mate esteve entre as atividades econômicas de
+destaque na formação histórica do Paraná. A produção
+envolvia coleta, beneficiamento, transporte e comércio.
+</p>
+
+</div>
+
+
+<div class="periodo">
+
+<h3>2️⃣ Expansão da madeira</h3>
+
+<p>
+A exploração das florestas impulsionou serrarias e outras
+atividades relacionadas à madeira. A expansão das ferrovias
+facilitou o transporte da produção.
+</p>
+
+</div>
+
+
+<div class="periodo">
+
+<h3>3️⃣ Expansão do café</h3>
+
+<p>
+O Norte do Paraná passou por
